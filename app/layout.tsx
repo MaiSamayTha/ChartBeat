@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ChartBeat",
-  description: "Track real-time stock prices, get personalised alerts and explore detailed companies insight",
+  title: "Signalist",
+  description: "Stock market tracker",
 };
 
 export default function RootLayout({
@@ -23,11 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className ="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" className="dark">
+      <body className={`${geistSans.variable} ${geistMono.variable} bg-gray-900 text-gray-100 antialiased`}>
+        <Header />
+        <main className="container py-6">{children}</main>
       </body>
     </html>
   );
